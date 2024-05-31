@@ -38,18 +38,111 @@ function ProductList({ pageType }: Props) {
   const [search, setSearch] = useState<string | undefined>(undefined);
   const [Order, setOrder] = useState<"desc" | "asc">("desc");
 
-  const { data, error, refetch, isLoading, isFetching } = useGetProducts({
-    limit: 10,
-    page: currentPage,
-    categoryId: categoryFilterId,
-    name: search,
-    order: Order
-  });
-  const {
-    data: catData,
-    isLoading: isCatLoading,
-    isFetching: isCatFetching
-  } = useGetCategories({});
+  // const { data, error, refetch, isLoading, isFetching } = useGetProducts({
+  //   limit: 10,
+  //   page: currentPage,
+  //   categoryId: categoryFilterId,
+  //   name: search,
+  //   order: Order
+  // });
+  const sampleData = {
+    products: [
+      {
+        product_Id: "1",
+        product_Name: "Product 1",
+        price: 100,
+        discountedPrice: 90,
+        photo_path: "https://th.bing.com/th?id=OSK.HEROvenA_m0JKiSeic_T1XD0FgIJIt67VXjNM0g_erO4Drg&w=472&h=280&c=13&rs=2&o=6&dpr=1.3&pid=SANGAM",
+        quantity: 50,
+        category_Id: 1
+      },
+      {
+        product_Id: "2",
+        product_Name: "Product 2",
+        price: 200,
+        discountedPrice: 180,
+        photo_path: "https://th.bing.com/th?id=OSK.HEROvenA_m0JKiSeic_T1XD0FgIJIt67VXjNM0g_erO4Drg&w=472&h=280&c=13&rs=2&o=6&dpr=1.3&pid=SANGAM",
+        quantity: 30,
+        category_Id: 2
+      },
+      {
+        product_Id: "3",
+        product_Name: "Product 3",
+        price: 300,
+        discountedPrice: 270,
+        photo_path: "https://th.bing.com/th?id=OSK.HEROvenA_m0JKiSeic_T1XD0FgIJIt67VXjNM0g_erO4Drg&w=472&h=280&c=13&rs=2&o=6&dpr=1.3&pid=SANGAM",
+        quantity: 20,
+        category_Id: 3
+      },
+      {
+        product_Id: "4",
+        product_Name: "Product 4",
+        price: 400,
+        discountedPrice: 360,
+        photo_path: "https://th.bing.com/th?id=OSK.HEROvenA_m0JKiSeic_T1XD0FgIJIt67VXjNM0g_erO4Drg&w=472&h=280&c=13&rs=2&o=6&dpr=1.3&pid=SANGAM",
+        quantity: 10,
+        category_Id: "4"
+      },
+      {
+        product_Id: "5",
+        product_Name: "Product 5",
+        price: 500,
+        discountedPrice: 450,
+        photo_path: "https://th.bing.com/th?id=OSK.HEROvenA_m0JKiSeic_T1XD0FgIJIt67VXjNM0g_erO4Drg&w=472&h=280&c=13&rs=2&o=6&dpr=1.3&pid=SANGAM",
+        quantity: 5,
+        category_Id: 5
+      },
+      {
+        product_Id: "3",
+        product_Name: "Product 3",
+        price: 300,
+        discountedPrice: 270,
+        photo_path: "https://th.bing.com/th?id=OSK.HEROvenA_m0JKiSeic_T1XD0FgIJIt67VXjNM0g_erO4Drg&w=472&h=280&c=13&rs=2&o=6&dpr=1.3&pid=SANGAM",
+        quantity: 20,
+        category_Id: 3
+      },
+      {
+        product_Id: "4",
+        product_Name: "Product 4",
+        price: 400,
+        discountedPrice: 360,
+        photo_path: "https://th.bing.com/th?id=OSK.HEROvenA_m0JKiSeic_T1XD0FgIJIt67VXjNM0g_erO4Drg&w=472&h=280&c=13&rs=2&o=6&dpr=1.3&pid=SANGAM",
+        quantity: 10,
+        category_Id: "4"
+      },
+      {
+        product_Id: "5",
+        product_Name: "Product 5",
+        price: 500,
+        discountedPrice: 450,
+        photo_path: "https://th.bing.com/th?id=OSK.HEROvenA_m0JKiSeic_T1XD0FgIJIt67VXjNM0g_erO4Drg&w=472&h=280&c=13&rs=2&o=6&dpr=1.3&pid=SANGAM",
+        quantity: 5,
+        category_Id: 5
+      }
+    
+    ],
+    totalRows: 5
+  };
+  const [isLoading, setIsLoading] = useState(false);
+  const [isFetching, setIsFetching] = useState(false);
+  const [data, setData] = useState(sampleData);
+  const [error, setError] = useState(null);
+
+  // Refetch function to simulate data fetching
+  const refetch = () => {
+    setIsFetching(true);
+    // Simulate data fetching
+    setTimeout(() => {
+      setIsFetching(false);
+      setData(sampleData);
+    }, 1000);
+  };
+
+  // const {
+  //   data: catData,
+  //   isLoading: isCatLoading,
+  //   isFetching: isCatFetching
+  // } = useGetCategories({});
   // useEffect(() => {
   //   refetch();
   // }, [refetch, currentPage]);
@@ -119,10 +212,14 @@ function ProductList({ pageType }: Props) {
           <div className="flex h-full w-full flex-col items-center justify-start gap-5">
             <div className="w-full">
               <Tree
-                loading={isCatLoading || isCatFetching}
-                disabled={isCatLoading || isCatFetching}
+                // loading={isCatLoading || isCatFetching}
+                // disabled={isCatLoading || isCatFetching}
+                // style={{ width: "100%" }}
+                // treeData={catData}
+                loading={false}
+                disabled={false}
                 style={{ width: "100%" }}
-                treeData={catData}
+                treeData={[]} // 
                 showLine
                 defaultExpandAll
                 checkable
