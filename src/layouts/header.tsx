@@ -8,12 +8,13 @@ function AppHeader() {
         className="flex items-center gap-2 rounded-lg  bg-[var(--tg-theme-secondary-bg-color)]  p-3"
         to="/cart">
         <ShoppingCartOutlined style={{ fontSize: "22px" }} />
-        <span>سبد خرید من</span>
+        <span>My shopping cart</span>
       </Link>
       <Link
         className="flex items-center gap-2 rounded-lg  bg-[var(--tg-theme-secondary-bg-color)]  p-3"
         to="/profile/home">
-        <span>حساب کاربری</span>
+        <span>user account</span>
+
         <UserOutlined style={{ fontSize: "22px" }} />
       </Link>
     </div>

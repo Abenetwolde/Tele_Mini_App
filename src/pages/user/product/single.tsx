@@ -56,12 +56,13 @@ function ProductSingle() {
       },
       {
         onSuccess: () => {
-          message.success("محصول شما به سبد اضافه شد ");
+          message.success("Your product has been added to the cart.");
         },
         onError: () => {
-          message.error("مشکل در افزودن کارت لطفا دقایقی دیگر تلاش کنید");
+          message.error("There was an issue adding to the cart. Please try again in a few minutes.");
         }
       }
+      
     );
   };
 
@@ -76,7 +77,7 @@ function ProductSingle() {
       ) : (
         <div className="flex flex-col gap-3">
           {data?.quantity === 0 && (
-            <Alert message="این محصول ناموجود می باشد " type="error" showIcon />
+            <Alert message="error" type="error" showIcon />
           )}
 
           <div className=" flex h-fit w-full items-center justify-center ">

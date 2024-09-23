@@ -46,11 +46,11 @@ function Discount({ type, id, data }: Props) {
       },
       {
         onSuccess: () => {
-          message.success("تخفیف شما حذف شد ");
-          window.location.reload();
+        message.success("Your discount has been removed ");
+        window.location.reload();
         },
         onError: () => {
-          message.error("حذف تخفیف با مشکل مواجه شد");
+        message.error("Failed to remove discount");
         }
       }
     );
@@ -80,72 +80,72 @@ function Discount({ type, id, data }: Props) {
             user_id: userId.toString()
           };
           if (data) {
-            updateMutation.mutate(values, {
-              onSuccess: () => {
-                message.success("تخفیف شما ثبت شد ");
-                // window.location.reload();
-              },
-              onError: () => {
-                message.error("ثبت تخفیف با مشکل مواجه شد");
-              }
+            updateMutation. mutate(values, {
+            onSuccess: () => {
+            message.success("Your discount has been registered ");
+            // window.location.reload();
+            },
+            onError: () => {
+            message.error("There was a problem registering the discount");
+            }
             });
-          } else {
-            mutation.mutate(values, {
-              onSuccess: () => {
-                message.success("تخفیف شما ثبت شد ");
-                // window.location.reload();
-              },
-              onError: () => {
-                message.error("ثبت تخفیف با مشکل مواجه شد");
-              }
+            } else {
+            mutation. mutate(values, {
+            onSuccess: () => {
+            message.success("Your discount has been registered ");
+            // window.location.reload();
+            },
+            onError: () => {
+            message.error("There was a problem registering the discount");
+            }
             });
-          }
-        }}>
-        <Alert
-          type="info"
-          message="تخفیفات بین 1 تا 100 درصد اعمال میشود "
-          showIcon
-        />
-        <Form.Item name="percent" required label="درصد">
-          <InputNumber min={1} addonAfter="%" max={100} required />
-        </Form.Item>
+            }
+            }}>
+            <Alert
+            type="info"
+            message="Discounts between 1 and 100 percent are applied"
+            showIcon
+            />
+            <Form.Item name="percent" required label="percent">
+            <InputNumber min={1} addonAfter="%" max={100} required />
+            </Form.Item>
+           
+            <Form.Item name="discount_start_date" required label="from start">
+            <DatePicker />
+            </Form.Item>
+            <Form.Item name="discount_end_date" required label="until end">
+            <DatePicker disabledDate={disabledDate} />
+            </Form.Item>
 
-        <Form.Item name="discount_start_date" required label="از شروع">
-          <DatePicker />
-        </Form.Item>
-        <Form.Item name="discount_end_date" required label="تا پایان">
-          <DatePicker disabledDate={disabledDate} />
-        </Form.Item>
-
-        <div className="flex gap-3">
-          {data && (
-            <Popconfirm
-              placement="top"
-              title="آیا از حذف تخفیف اطمینان دارید ؟"
-              onConfirm={() => handleDeleteDiscount()}
-              okText="حذف"
-              okType="default"
-              cancelText="انصراف">
-              <Button
-                size="large"
-                loading={deleteMutation.isLoading}
-                style={{ width: "36%" }}
-                danger>
-                حذف تخفیف
-              </Button>
-            </Popconfirm>
-          )}
-          <Button
-            type="primary"
-            loading={mutation.isLoading}
-            style={{ width: data ? "65%" : "100%" }}
-            size="large"
-            ghost
-            // className="sticky bottom-3"
-            htmlType="submit">
-            ذخیره
-          </Button>
-        </div>
+            <div className="flex gap-3">
+ { data && (
+ <Popconfirm
+ placement="top"
+ title="Are you sure about removing the discount?"
+ onConfirm={() => handleDeleteDiscount()}
+ okText="delete"
+ okType="default"
+ cancelText="Cancel">
+ <Button
+ size="large"
+ loading={deleteMutation.isLoading}
+ style={{ width: "36%" }}
+ danger>
+ Remove the discount
+ </Button>
+ </Popconfirm>
+ )}
+ <Button
+ type="primary"
+ loading={mutation.isLoading}
+ style={{ width: data ? "65%" : "100%" }}
+ size="large"
+ ghost
+ // className="sticky bottom-3"
+ htmlType="submit">
+ save
+ </Button>
+ </div>
       </Form>
     </div>
   );

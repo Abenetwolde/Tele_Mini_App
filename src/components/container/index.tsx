@@ -41,7 +41,7 @@ function Container({
         )}
         {backwardUrl && (
           <Button type="primary" ghost onClick={() => navigate(backwardUrl)}>
-            بازگشت
+            back
           </Button>
         )}
       </div>

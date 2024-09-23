@@ -11,7 +11,6 @@ interface Props {
   loading: boolean;
   orders: Order | undefined;
 }
-
 function OrderList({ loading, orders }: Props) {
   return (
     <>
@@ -25,40 +24,41 @@ function OrderList({ loading, orders }: Props) {
             <List.Item.Meta
               title={
                 <Link to={`/products/${item.product_Id}`}>
-                  نام محصول :
+                  Product Name:
                   <br />
                   {item.product_Name}
                 </Link>
               }
             />
 
-            <div className="flex flex-col gap-3  ">
-              <div className="flex flex-row-reverse gap-1">
-                <span>تومان</span>
+            <div className="flex flex-col gap-3">
+              <div className="flex flex-row gap-1">
+                <span>Currency</span>
                 <span>{addCommas(item.final_Price)}</span>
-                <span> قیمت واحد :</span>
+                <span>Unit Price:</span>
               </div>
-              <div className="flex flex-row-reverse gap-1">
-                <span>عدد</span>
+              <div className="flex flex-row gap-1">
+                <span>Quantity</span>
                 <span>{item.quantity}</span>
-                <span> تعداد :</span>
+                <span>Units:</span>
               </div>
 
-              <div className="flex flex-row-reverse gap-1">
-                <span>تومان</span>
+              <div className="flex flex-row gap-1">
+                <span>Currency</span>
                 <span>{addCommas(item.final_Price * item.quantity)}</span>
-                <span> قیمت کل :</span>
+                <span>Total Price:</span>
               </div>
             </div>
           </List.Item>
         )}
       />
-      <Divider> مجموع قیمت </Divider>
+      <Divider>Total Price</Divider>
       <div>
-        <span>{addCommas(orders?.total_Price || 0)}</span> <span>تومان</span>
+        <span>{addCommas(orders?.total_Price || 0)}</span> <span>Currency</span>
       </div>
     </>
   );
 }
+
 
 export default OrderList;

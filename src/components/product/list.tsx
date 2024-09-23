@@ -168,13 +168,13 @@ function ProductList({ pageType }: Props) {
               defaultValue="desc"
               style={{ width: "fit-content" }}
               options={[
-                { value: "asc", label: "قیمت از کم به زیاد" },
-                { value: "desc", label: "قیمت از زیاد به کم" }
+                { value: "asc", label: "low to high" },
+                { value: "desc", label: "high to low" }
               ]}
             />
           </div>
           <Button onClick={() => setOpen(true)} icon={<SlidersOutlined />}>
-            فیلتر ها
+          Filter
           </Button>
         </div>
         <Drawer
@@ -188,7 +188,7 @@ function ProductList({ pageType }: Props) {
                 }}
                 danger
                 size="large">
-                حذف فیلتر ها
+                Remove filters
               </Button>
               <Button
                 className="w-full"
@@ -198,11 +198,11 @@ function ProductList({ pageType }: Props) {
                 }}
                 size="large"
                 icon={<FileDoneOutlined />}>
-                اعمال فیلتر
+                Apply filter
               </Button>
             </div>
           }
-          title=" فیلتر ها"
+          title="filters"
           placement="bottom"
           onClose={() => setOpen(false)}
           width="100%"
@@ -248,14 +248,14 @@ function ProductList({ pageType }: Props) {
           <ProductsSkeleton />
         ) : error ? (
           <div className="flex w-full flex-col items-center justify-center gap-5">
-            مشکلی رخ داده
+            somthing went wrong
             <Button onClick={() => refetch()} icon={<ReloadOutlined />}>
-              تلاش مجدد
+              Try again
             </Button>
           </div>
         ) : data?.products.length === 0 ? (
           <div className="flex w-full items-center justify-center">
-            <Empty description="اطلاعاتی موجود نیست" />
+            <Empty description="No data"/>
           </div>
         ) : (
           <>

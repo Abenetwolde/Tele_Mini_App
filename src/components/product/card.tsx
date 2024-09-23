@@ -65,7 +65,7 @@ function Card({
           {/* <div className="self-start text-left">تعداد :{quantity} عدد</div> */}
         </div>
         <Button className="w-full self-end" type="default">
-          دیدن محصول
+        View the product
         </Button>
       </div>
     </Link>
