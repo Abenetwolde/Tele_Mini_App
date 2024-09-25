@@ -30,7 +30,7 @@
 
 body {
   margin: 0;
-  padding: 20px 20px;
+  padding: 5px 10px;
 
   font-family: "iransans";
 
@@ -71,8 +71,8 @@ label {
 
 .contentWrapper {
   box-sizing: border-box;
-  margin: 5px 0;
-  padding: 20px;
+  margin: 2px 0;
+  padding: 5px,0;
 
   color: var(--tg-theme-text-color) !important;
 
@@ -84,6 +84,9 @@ label {
 .ant-select,
 .ant-select-item {
   background-color: unset !important;
+}
+input {
+  text-align: left;
 }
 
 @keyframes App-logo-spin {

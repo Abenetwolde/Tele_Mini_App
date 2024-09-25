@@ -4,6 +4,7 @@ import ProductNews from "@containers/product-news";
 import useTelegram from "@hooks/useTelegram";
 
 import AppHeader from "../layouts/header";
+import SearchInput from "src/layouts/SearchInput";
 
 function Home() {
   const tgApp = useTelegram();
@@ -13,9 +14,10 @@ function Home() {
   return (
     <div className="flex flex-col gap-4">
       <AppHeader />
-      <HeroSlider />
+      <SearchInput/>
+      {/* <HeroSlider />
       <Boxes />
-      <ProductNews />
+      <ProductNews /> */}
     </div>
   );
 }

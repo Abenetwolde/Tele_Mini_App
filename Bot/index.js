@@ -7,7 +7,7 @@ bot.start((ctx) => {
         caption: "Caption",
         parse_mode: "Markdown",
         ...Markup.inlineKeyboard([
-          Markup.button.webApp("Click)", `https://tele-mini-app-beta.vercel.app/`),
+          Markup.button.webApp("Click)", `https://6439-196-188-157-5.ngrok-free.app/`),
         ])
 }); 
 })
