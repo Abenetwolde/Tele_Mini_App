@@ -7,7 +7,7 @@ bot.start((ctx) => {
         caption: "Caption",
         parse_mode: "Markdown",
         ...Markup.inlineKeyboard([
-          Markup.button.webApp("Click)", `https://6439-196-188-157-5.ngrok-free.app/`),
+          Markup.button.webApp("Click)", `https://2889-196-188-157-5.ngrok-free.app/`),
         ])
 }); 
 })

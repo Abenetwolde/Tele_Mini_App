@@ -5,6 +5,7 @@ import useTelegram from "@hooks/useTelegram";
 
 import AppHeader from "../layouts/header";
 import SearchInput from "src/layouts/SearchInput";
+import Ads from "@components/Ad";
 
 function Home() {
   const tgApp = useTelegram();
@@ -15,6 +16,7 @@ function Home() {
     <div className="flex flex-col gap-4">
       <AppHeader />
       <SearchInput/>
+      <Ads/>
       {/* <HeroSlider />
       <Boxes />
       <ProductNews /> */}

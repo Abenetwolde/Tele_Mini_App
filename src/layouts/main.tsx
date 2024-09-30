@@ -22,7 +22,7 @@ function Main({ children }: Props) {
     <div className="app w-full py-1">
       <div className="w-full !max-w-[450px]">
         <ConfigProvider
-          direction="rtl"
+          direction="ltr"
           locale={fa_IR}
           renderEmpty={customizeRenderEmpty}
           theme={
