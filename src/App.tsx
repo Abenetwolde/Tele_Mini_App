@@ -4,7 +4,7 @@ import "antd/dist/reset.css";
 
 import useTelegramUser from "@hooks/useTelegramUser";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
+import 'antd-mobile/es/global';
 import Main from "./layouts/main";
 import Router from "./router";
 

@@ -32,6 +32,8 @@ import {
   UserProfileOrder,
   UserProfileOrderSingle
 } from "@pages/index";
+import CartPage from "@pages/user/Cart";
+import OrderPage from "@pages/user/Order";
 import { createBrowserRouter } from "react-router-dom";
 
 export const routes = createBrowserRouter([
@@ -58,8 +60,12 @@ export const routes = createBrowserRouter([
 
   // user
   {
-    path: "/products",
-    element: <ProductList />
+    path: "/order",
+    element: <OrderPage />
+  },
+  {
+    path: "/cart",
+    element: <CartPage />
   },
   {
     path: "/products/:product_id",

@@ -4,7 +4,7 @@ import { addCommas } from "@persian-tools/persian-tools";
 import { Button, Divider } from "antd";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectFade } from 'swiper/modules';
+import { EffectFade,Navigation,Pagination } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -28,62 +28,43 @@ function Ads({
 }: Props) {
 
     
+  const imageSources:any = [
+    "https://th.bing.com/th/id/OIP.HTmQ9WaJ-BMCAt5oZPnXrgHaFj?rs=1&pid=ImgDetMain",
+    "https://th.bing.com/th/id/OIP.HTmQ9WaJ-BMCAt5oZPnXrgHaFj?rs=1&pid=ImgDetMain",
+    "https://th.bing.com/th/id/OIP.HTmQ9WaJ-BMCAt5oZPnXrgHaFj?rs=1&pid=ImgDetMain",
+  ];
   
   return (
-    <div className="w-full max-h-40">
-      <Swiper
-        slidesPerView={1.5} // Show 1 full card and half of the next
-        spaceBetween={-30} // Negative space to overlap slides
-        centeredSlides={true}
-        loop={true}
-        pagination={{ clickable: true }}
-        effect="slide"
-        grabCursor={true}
-        onSlideChange={() => console.log('Slide changed')}
-        onSwiper={(swiper) => console.log(swiper)}
-        className="w-full h-40" // Tailwind classes for Swiper container
-      >
-        {/* Swiper Slides */}
-        <SwiperSlide>
-          <div className="flex justify-center items-center w-64 h-64 rounded-2xl overflow-hidden shadow-md">
+    <div className="w-full">
+    <Swiper
+      modules={[EffectFade, Navigation, Pagination]}
+      slidesPerView={1}
+      spaceBetween={10}
+      centeredSlides={true}
+      loop={true}
+      pagination={{
+        clickable: true,
+        type: 'bullets', // Enables dot indicators
+      }}
+      // effect="slide"
+      grabCursor={true}
+      onSlideChange={() => console.log('Slide changed')}
+      onSwiper={(swiper) => console.log(swiper)}
+      className="w-full h-20 p-3"
+    >
+      {imageSources.map((src:any, index:any) => (
+        <SwiperSlide key={index}>
+          <div className="flex justify-center items-center w-full h-full rounded-2xl overflow-hidden shadow-md px-2">
             <img
-              src="https://via.placeholder.com/150"
-              alt="Slide 1"
+              src={src}
+              alt={`Slide ${index + 1}`}
               className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
             />
           </div>
         </SwiperSlide>
-
-        {/* Repeat for other slides */}
-        <SwiperSlide>
-          <div className="flex justify-center items-center w-64 h-64 rounded-2xl overflow-hidden shadow-md">
-            <img
-              src="https://via.placeholder.com/150"
-              alt="Slide 2"
-              className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="flex justify-center items-center w-64 h-64 rounded-2xl overflow-hidden shadow-md">
-            <img
-              src="https://via.placeholder.com/150"
-              alt="Slide 3"
-              className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
-            />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="flex justify-center items-center w-64 h-64 rounded-2xl overflow-hidden shadow-md">
-            <img
-              src="https://via.placeholder.com/150"
-              alt="Slide 4"
-              className="w-full h-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-105"
-            />
-          </div>
-        </SwiperSlide>
-      </Swiper>
-    </div>
+      ))}
+    </Swiper>
+  </div>
   );
 }
 
