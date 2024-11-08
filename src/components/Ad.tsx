@@ -35,7 +35,7 @@ function Ads({
   ];
   
   return (
-    <div className="w-full">
+    <div className="w-full bg-[var(--tg-theme-secondary-bg-color)]">
     <Swiper
       modules={[EffectFade, Navigation, Pagination]}
       slidesPerView={1}
@@ -50,11 +50,11 @@ function Ads({
       grabCursor={true}
       onSlideChange={() => console.log('Slide changed')}
       onSwiper={(swiper) => console.log(swiper)}
-      className="w-full h-20 p-3"
+      className="w-full h-20 p-3 "
     >
       {imageSources.map((src:any, index:any) => (
         <SwiperSlide key={index}>
-          <div className="flex justify-center items-center w-full h-full rounded-2xl overflow-hidden shadow-md px-2">
+          <div className=" flex justify-center items-center w-full h-full rounded-2xl overflow-hidden shadow-md px-2">
             <img
               src={src}
               alt={`Slide ${index + 1}`}

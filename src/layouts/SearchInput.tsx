@@ -13,7 +13,7 @@ function SearchInput() {
   const [colorScheme, themeParams] = useThemeParams();
   return (
     // <div className="flex flex-col  p-2 gap-2">
-      <div className="flex w-full items-center gap-2">
+      <div className="flex w-full items-center gap-2 bg-[var(--tg-theme-secondary-bg-color)]">
         {/* Search field with 60% width */}
         <Input.Search
           allowClear
